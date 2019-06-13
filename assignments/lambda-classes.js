@@ -27,6 +27,17 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}.`)
     }
+
+    changeGrade(student) {
+        let points = Math.round(Math.random() * 100);
+        if (student.grade >= 100) {
+            student.grade -= points;
+            console.log(`${student.name}'s current grade is ${student.grade}`);
+        } else {
+            student.grade += points;
+            console.log(`${student.name}'s current grade is ${student.grade}`);
+        }
+    }
 }
 
 class Student extends Person {
@@ -83,6 +94,7 @@ const eric = new Student({
     previousBackground: 'Retail Management',
     className: 'Web21',
     favSubjects: ['Html', 'CSS', 'JavaScript'],
+    grade: 100,
 });
 
 const bill = new Student({
@@ -92,6 +104,7 @@ const bill = new Student({
     previousBackground: 'CS Degree',
     className: 'Web21',
     favSubjects: ['Html', 'CSS', 'JavaScript'],
+    grade: 69,
 });
 
 const sarah = new Student({
@@ -101,6 +114,7 @@ const sarah = new Student({
     previousBackground: 'College Dropout',
     className: 'Web21',
     favSubjects: ['Html', 'CSS', 'JavaScript'],
+    grade: 95,
 });
 
 const tom = new ProjectManager({
@@ -119,3 +133,5 @@ eric.PRAssignment('Javascript');
 eric.sprintChallenge('HTML');
 tom.standUp('Web21');
 tom.debugsCode(eric, 'Javascript');
+fred.changeGrade(bill);
+tom.changeGrade(sarah);
