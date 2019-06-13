@@ -60,6 +60,16 @@ class Student extends Person {
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`)
     }
+
+    graduate() {
+        if (this.grade >= 70) {
+            console.log(`${this.name} has graduated with a final grade of ${this.grade}!`);
+        } else {
+            let diff = 70 - this.grade;
+            this.grade += diff;
+            console.log(`After more grading, ${diff} points were earned and ${this.name} has graduated with a final grade of ${this.grade}!`);
+        }
+    }
 }
 
 class ProjectManager extends Instructor {
@@ -135,3 +145,5 @@ tom.standUp('Web21');
 tom.debugsCode(eric, 'Javascript');
 fred.changeGrade(bill);
 tom.changeGrade(sarah);
+sarah.graduate();
+bill.graduate();
